@@ -9,8 +9,10 @@ function number_vogals(phrase:string){
 		}
 	}
 
-	alert(count)
+	return count
 }
 
 
-
+console.log(number_vogals("Heey"));
+console.log(number_vogals("kkkkk"));
+console.log(number_vogals("Dee Dee"));
