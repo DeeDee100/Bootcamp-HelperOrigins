@@ -1,8 +1,6 @@
 
-function number_vogals(){
-	let box: any = document.getElementById("texto");
-	let phrase: string = box.value
-	
+function number_vogals(phrase:string){
+
 	let count = 0;
 	phrase = phrase.toLowerCase()
 	for (var char of phrase){

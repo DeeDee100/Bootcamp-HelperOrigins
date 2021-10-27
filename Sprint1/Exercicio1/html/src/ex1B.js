@@ -11,4 +11,4 @@ function number_vogals() {
     }
     alert(count);
 }
-//# sourceMappingURL=ex1.js.map
+//# sourceMappingURL=ex1B.js.map
