@@ -1,6 +1,6 @@
 
 function number_vogals(){
-	let box: any = document.getElementById("texto") as HTMLSelectElement;
+	let box: any = document.getElementById("texto");
 	let phrase: string = box.value
 	
 	let count = 0;
