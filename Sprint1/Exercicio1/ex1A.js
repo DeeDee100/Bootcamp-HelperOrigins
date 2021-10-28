@@ -1,12 +1,14 @@
-function number_vogals(phrase) {
-    var count = 0;
-    phrase = phrase.toLowerCase();
-    for (var _i = 0, phrase_1 = phrase; _i < phrase_1.length; _i++) {
-        var char = phrase_1[_i];
-        if (char == 'a' || char == 'e' || char == 'i' || char == 'o' || char == 'u') {
-            count++;
-        }
-    }
-    alert(count);
+function number_vogals(phrase:string):number {
+	let count:number = 0;
+	phrase = phrase.toLowerCase()
+	for (let char of phrase){
+		if (char == 'a' || char == 'e' || char == 'i' || char == 'o' || char == 'u'){
+			count++;
+		}
+	}
+	return count
 }
+console.log(number_vogals("Heey"));
+console.log(number_vogals("kkkkk"));
+console.log(number_vogals("DEE Dee"));
 //# sourceMappingURL=ex1A.js.map

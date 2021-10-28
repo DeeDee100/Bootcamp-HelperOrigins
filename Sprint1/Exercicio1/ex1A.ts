@@ -1,5 +1,5 @@
 
-function number_vogals(phrase:string):void {
+function number_vogals(phrase:string):number {
 
 	let count:number = 0;
 	phrase = phrase.toLowerCase()
@@ -15,4 +15,4 @@ function number_vogals(phrase:string):void {
 
 console.log(number_vogals("Heey"));
 console.log(number_vogals("kkkkk"));
-console.log(number_vogals("Dee Dee"));
+console.log(number_vogals("DEE Dee"));

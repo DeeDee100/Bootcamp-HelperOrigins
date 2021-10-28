@@ -11,3 +11,4 @@ function number_vogals() {
     }
     alert(count);
 }
+//# sourceMappingURL=ex1B.js.map
