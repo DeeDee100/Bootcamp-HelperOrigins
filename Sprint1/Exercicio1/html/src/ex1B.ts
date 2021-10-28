@@ -1,12 +1,12 @@
 
-function number_vogals(){
+function number_vogals() :void{
 	
-	let box: any = document.getElementById("texto");
-	let phrase: string = box.value
+	let box = document.getElementById("text") as HTMLInputElement;
+	let phrase:string = box.value
 
-	let count = 0;
+	let count:number = 0;
 	phrase = phrase.toLowerCase()
-	for (var char of phrase){
+	for (let char of phrase){
 		if (char == 'a' || char == 'e' || char == 'i' || char == 'o' || char == 'u'){
 			count++;
 		}

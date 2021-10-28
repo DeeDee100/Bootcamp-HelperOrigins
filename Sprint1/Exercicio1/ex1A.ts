@@ -1,9 +1,9 @@
 
-function number_vogals(phrase:string){
+function number_vogals(phrase:string):void {
 
-	let count = 0;
+	let count:number = 0;
 	phrase = phrase.toLowerCase()
-	for (var char of phrase){
+	for (let char of phrase){
 		if (char == 'a' || char == 'e' || char == 'i' || char == 'o' || char == 'u'){
 			count++;
 		}

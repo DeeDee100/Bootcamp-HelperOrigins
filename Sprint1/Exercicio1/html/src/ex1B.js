@@ -1,5 +1,5 @@
 function number_vogals() {
-    var box = document.getElementById("texto");
+    var box = document.getElementById("text");
     var phrase = box.value;
     var count = 0;
     phrase = phrase.toLowerCase();
@@ -11,4 +11,3 @@ function number_vogals() {
     }
     alert(count);
 }
-//# sourceMappingURL=ex1B.js.map
