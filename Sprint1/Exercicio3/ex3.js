@@ -4,6 +4,7 @@
 // c) O valor médio.
 // Demonstre essa função com o paradigma funcional e imperativo
 let listin = [1, 2, 3, 4, 5, 'Orange'];
+let lista1 = [1, 2, 3, 4, 5];
 function getValues(lista) {
     let newList = [];
     let sum = 0;
@@ -17,12 +18,13 @@ function getValues(lista) {
         }
     }
     newList.sort();
-    const leng = newList.length;
-    const big = newList[(leng - 1)];
+    const length = newList.length;
+    const big = newList[(length - 1)];
     const small = newList[0];
-    const medium = sum / leng;
+    const medium = sum / length;
     const result = [big, small, medium];
     return result;
 }
 console.log(getValues(listin));
+console.log(getValues(lista1));
 //# sourceMappingURL=ex3.js.map
