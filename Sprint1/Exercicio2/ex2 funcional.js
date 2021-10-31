@@ -19,32 +19,12 @@ function deleteFuncional(id) {
 function updateFuncional(id, campo, mudanca) {
     let novaLista = [...lista];
     const index = novaLista.findIndex(item => item["id"] == id);
-    if (typeof (novaLista[index]) == "undefined") {
-        return "Ocorreu um erro";
-    }
-    else if (campo == "name" || campo == "nome") {
-        novaLista[index].name = mudanca;
+    if (novaLista[index]) {
+        novaLista[index][campo] = mudanca;
         return novaLista;
     }
-    else if (campo == "bio") {
-        novaLista[index].bio = mudanca;
-        return novaLista;
+    else {
+        return "ERROR: Mudança não executada";
     }
 }
-// console.log(getNameFuncional(1));
-// console.log(getNameFuncional(7));
-// console.log();
-// console.log(getNameFuncional(2));
-// console.log(getNameFuncional(9));
-//console.log();
-//console.log(deleteFuncional(1));
-// console.log("teste de bio: ")
-// console.log(updateFuncional(2, "bio", "mudanca1"));
-// console.log()
-console.log("Teste de nome: ");
-console.log(updateFuncional(2, "nome", "mudanca"));
-console.log("Lista original");
-console.log(lista);
-// console.log("Teste de erro: ")
-// console.log(updateFuncional(8, "bio", "mudanca"));
 //# sourceMappingURL=ex2%20funcional.js.map

@@ -1,11 +1,8 @@
-
 interface Person{
 	id: number;
 	name: string;
 	bio: string;
 }
-
-
 
 let lista: Array<Person> = [
 	{"id" : 1, "name": "Ada Lovelace", "bio" : "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina"},
@@ -13,9 +10,6 @@ let lista: Array<Person> = [
 	{"id" : 3, "name": "Nikola Tesla", "bio" : "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada."},
 	{"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}
 ];
-
-
-
 
 function getNameFuncional(id: number): string {
 	return lista.find(item => item.id == id)?.name || "ID Não Encontrado";
@@ -30,37 +24,14 @@ function deleteFuncional(id: number): Array<Person>{
 	return novaLista;
 }
 
-function updateFuncional(id: number, campo: string, mudanca: string): string | Array<Person>{
+function updateFuncional(id: number, campo: 'name' | 'bio', mudanca: string): string | Array<Person>{
 	let novaLista:  Array<Person> = [...lista];
-	const index = novaLista.findIndex(item => item["id"] == id);
-	if (typeof(novaLista[index]) == "undefined"){
-		return "Ocorreu um erro"
+	const index: number = novaLista.findIndex(item => item["id"] == id);
+	if (novaLista[index]){
+		novaLista[index][campo] = mudanca;
+		return novaLista;
 	}
-	else if (campo == "name" || campo == "nome"){
-		novaLista[index].name = mudanca;
-		return novaLista
+	else{
+		return "ERROR: Mudança não executada";
 	}
-	else if ( campo == "bio"){
-		novaLista[index].bio = mudanca;
-		return novaLista
-	}
-
 }
-
-
-// console.log(getNameFuncional(1));
-// console.log(getNameFuncional(7));
-// console.log();
-// console.log(getNameFuncional(2));
-// console.log(getNameFuncional(9));
-//console.log();
-//console.log(deleteFuncional(1));
-// console.log("teste de bio: ")
-// console.log(updateFuncional(2, "bio", "mudanca1"));
-// console.log()
-console.log("Teste de nome: ")
-console.log(updateFuncional(2, "nome", "mudanca"));
-console.log("Lista original");
-console.log(lista);
-// console.log("Teste de erro: ")
-// console.log(updateFuncional(8, "bio", "mudanca"));

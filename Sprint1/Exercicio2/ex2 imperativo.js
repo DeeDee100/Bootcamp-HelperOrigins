@@ -7,25 +7,29 @@ let list = [
     { "id": 1, "name": "Ada Lovelace", "bio": "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina" },
     { "id": 2, "name": "Alan Turing", "bio": "Alan Turing foi um matemático, cientista da computação, lógico, criptoanalista, filósofo e biólogo teórico britânico, ele é amplamente considerado o pai da ciência da computação teórica e da inteligência artificia" },
     { "id": 3, "name": "Nikola Tesla", "bio": "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada." },
-    { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." }
+    { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." },
+    { "id": 7, "name": "Dee Dee", "bio": "Bio aqui luls" }
 ];
+function getId(id) {
+    for (let index = 0; index < list.length; index++) {
+        if (list[index].id == id) {
+            return index;
+        }
+    }
+    return "404: Id não econtrado";
+}
 /**
  *
  * @param id id a ser encontrado
  * @returns Bio em caso de id válido | "Id não encontrado" em caso de id inválido
  */
 function getBio(id) {
-    let i;
-    for (let index in list) {
-        if (list[index].id == id) {
-            i = id;
-        }
-    }
-    if (typeof (i) == "undefined") {
-        return "Id não encontrado";
+    let index = getId(id);
+    if (list[index]) {
+        return list[index]['bio'];
     }
     else {
-        return list[i].bio;
+        return "Id não encontrado";
     }
 }
 /**
@@ -34,17 +38,12 @@ function getBio(id) {
  * @returns Nome em caso de id válido | "Id não encontrado" em caso de id inválido
  */
 function getName(id) {
-    let i;
-    for (let index in list) {
-        if (list[index].id == id) {
-            i = id;
-        }
-    }
-    if (typeof (i) == "undefined") {
-        return "Id não encontrado";
+    let index = getId(id);
+    if (list[index]) {
+        return list[index].name;
     }
     else {
-        return list[i].name;
+        return "Id não encontrado";
     }
 }
 /**
@@ -53,18 +52,14 @@ function getName(id) {
  * @returns "item deletado" em caso de id válido | "Id não encontrado" caso id inválido
  */
 function delElement(id) {
-    let i;
-    for (let index in list) {
-        if (list[index].id == id) {
-            i = id;
-        }
-    }
-    if (typeof (i) == "undefined") {
-        return "Id não encontrado";
+    let index = getId(id);
+    if (list[index]) {
+        const novo_index = Number(index);
+        list.splice(novo_index, 1);
+        return "Item deletado";
     }
     else {
-        list.splice(i - 1, 1);
-        return "Item deletado";
+        return "Id não encontrado";
     }
 }
 /**
@@ -72,44 +67,35 @@ function delElement(id) {
  * @param id Id a ser mudado
  * @param name Boolean, true se for o item a ser mudado - Default = false
  * @param bio Boolean, true se for o item a ser mudado - Default = false
- * @param string Novo texto para o parametro passado, caso os dois sejam "true" é o texto para o nome - Default = ""
- * @param string Novo texto para a bio - Opcional
+ * @param mudanca Novo texto para o parametro passado, caso os dois sejam "true" é o texto para o nome - Default = ""
+ * @param mudanca_opcional Novo texto para a bio - Opcional
  */
-function change(id, string1, name = false, bio = false, string2) {
-    let i;
-    for (let index in list) {
-        if (list[index].id == id) {
-            i = id;
-        }
-    }
-    if (typeof (i) == "undefined") {
-        return "Id não encontrado";
-    }
-    else {
+function change(id, mudanca, name = false, bio = false, bio_opcional) {
+    let index = getId(id);
+    if (list[index]) {
         if (name == true && bio == false) {
-            list[i].name = string1;
+            list[index].name = mudanca;
             return "Nome mudado";
         }
         else if (bio == true && name == false) {
-            list[i].bio = string1;
+            list[index].bio = mudanca;
             return "Bio mudada";
         }
         else if (bio == true && name == true) {
-            list[i].bio = string1;
-            list[i].name = string2;
+            list[index].bio = mudanca;
+            list[index].name = bio_opcional;
             return "Bio e nome mudados";
         }
         else {
             return "Escolha entre bio ou name";
         }
     }
+    else {
+        return "Id não encontrado";
+    }
 }
-//console.log(getName(0));
-// console.log(getName(8));
-// console.log(getBio(2));
-// console.log(getBio(8));
-console.log(change(1, "NAME", false));
-// console.log(change(1,true,true,"NAME", "BIOqw231"));
-// console.log(change(1,false,true,"Hellows, bio"));
-// console.log(change(1,false,false,"Hellows"));
+console.log(list);
+console.log();
+console.log(delElement(7));
+console.log(list);
 //# sourceMappingURL=ex2%20imperativo.js.map
