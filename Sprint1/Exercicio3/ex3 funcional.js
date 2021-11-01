@@ -1,5 +1,5 @@
-let listazin = [1, 2, 3, 4, 5, "luls"];
-let lista2 = [1, 2, 3, 4, 5,];
+let listaMista = [1, 2, 3, 4, 5, "luls"];
+let listaNumeros = [1, 2, 3, 4, 5,];
 /**
  *
  * @param lista lista a ser calculado o maior valor presente na lista
@@ -11,7 +11,8 @@ function maiorValor(lista) {
     return newLista[(newLista.length) - 1];
 }
 /**
- *
+ * @name menorValor
+ * @abstract Retorna o menor valor da lista
  * @param lista lista a ser calculado o menor valor presente na lista
  * @returns Menor valor
  */
@@ -48,6 +49,6 @@ function valores(lista) {
         return result;
     }
 }
-console.log(valores(listazin));
-console.log(valores(lista2));
+console.log(valores(listaMista));
+console.log(valores(listaNumeros));
 //# sourceMappingURL=ex3%20funcional.js.map

@@ -4,16 +4,25 @@
 // c) O valor médio.
 // Demonstre essa função com o paradigma funcional e imperativo
 
-let listin = [1,2,3,4,5, 'Orange'];
-let lista1 = [1,2,3,4,5];
+let mixedList = [1,2,3,4,5, 'Orange'];
+let numbersList = [1,2,3,4,5];
 
+/**
+ * @name getValues
+ * @abstract Calcula e retorna o valor medio e o maior e menor valor de uma lista dada.
+ * @param lista Lista a ser calculado maior e menor valor e valor médio. 
+ * @returns Retorna uma lista com o maior e menor valor e o valor médio, nessa ordem
+ */
 function getValues(lista: Array<any>): Array<number> | string{
-	let newList = [];
+	if (lista.length == 0){
+		return "Lista vazia";
+	}
+	let newList:Array<number> = [];
 	let sum: number = 0;
-	for (let i in lista){
-		if (typeof(lista[i]) == "number"){
-			newList.push(lista[i]);
-			sum += newList[i];
+	for (let index in lista){
+		if (typeof(lista[index]) == "number"){
+			newList.push(lista[index]);
+			sum += newList[index];
 		}
 		else{
 			return "ERRO: ITEM NÃO É UM NUMERO";
@@ -28,5 +37,5 @@ function getValues(lista: Array<any>): Array<number> | string{
 	return result;
 }
 
-console.log(getValues(listin));
-console.log(getValues(lista1));
+console.log(getValues(mixedList));
+console.log(getValues(numbersList));

@@ -1,5 +1,5 @@
-let listazin = [1,2,3,4,5, "luls"];
-let lista2 = [1,2,3,4,5,];
+let listaMista = [1,2,3,4,5, "luls"];
+let listaNumeros = [1,2,3,4,5,];
 
 /**
  * 
@@ -13,7 +13,8 @@ function maiorValor(lista: Array<any>): number{
 }
 
 /**
- * 
+ * @name menorValor
+ * @abstract Retorna o menor valor da lista
  * @param lista lista a ser calculado o menor valor presente na lista
  * @returns Menor valor
  */
@@ -41,7 +42,10 @@ function valorMedio(lista: Array<number>): number{
  * @returns Uma lista contendo maior valor, menor valor e o valor médio, nessa ordem.
  */
 function valores(lista: Array<any>): string | Array<number>{
-	if ((lista.every(item => typeof(item) === "number")) == false){
+	if (lista.length == 0 ){
+		return "lista vazia"
+	}
+	else if ((lista.every(item => typeof(item) === "number")) == false){
 		return "Item não é um número";
 	}
 	else{
@@ -53,5 +57,5 @@ function valores(lista: Array<any>): string | Array<number>{
 	}
 }
 
-console.log(valores(listazin));
-console.log(valores(lista2));
+console.log(valores(listaMista));
+console.log(valores(listaNumeros));
