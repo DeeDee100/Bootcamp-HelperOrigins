@@ -1,5 +1,3 @@
-//import {getId, delElement, change} from '../Exercicio2/ex2 imperativo';
-
 interface Person{
 	id: number;
 	name: string;
@@ -15,36 +13,27 @@ let listaPessoas: Array<Person> = [
 ];
 
 //criar elem de linha, pega o valor da lista e inserir no DOM 
-//apendchild | Doc create element | inserir no DOM
 
+function criaInformacoes(tr: HTMLTableRowElement, colum: number){
+		const td_id = tr.insertCell();
+		const td_name = tr.insertCell();
+		const td_bio = tr.insertCell();
 
-function criaId(tr: HTMLTableRowElement, colum: number){
+		td_id.appendChild(document.createTextNode(`${listaPessoas[colum].id}`));
+		td_name.appendChild(document.createTextNode(`${listaPessoas[colum].name}`));
+		td_bio.appendChild(document.createTextNode(`${listaPessoas[colum].bio}`));
 
-	const td = tr.insertCell();
-	td.appendChild(document.createTextNode(`${listaPessoas[colum].id}`));
-	td.style.width = '10px'
-	td.style.display = 'flex'
-	td.style.justifyContent = 'space-evenly'
-	//td.style.border = '1px solid black';
-
-}
-function criaNome(tr: HTMLTableRowElement, colum: number){
-
-	const td = tr.insertCell();
-	td.appendChild(document.createTextNode(`${listaPessoas[colum].name}`));
-	td.style.width = 'auto'
-	td.style.border = '1px solid black';
-
+		td_id.style.width = 'auto'
+		td_id.style.border = '1px solid black';
+		td_name.style.width = 'auto'
+		td_name.style.border = '1px solid black';
+		td_bio.style.width = 'auto'
+		td_bio.style.border = '1px solid black';
 }
 
-function criaBio(tr: HTMLTableRowElement, colum: number){
-		const td = tr.insertCell();
-		td.appendChild(document.createTextNode(`${listaPessoas[colum].bio}`));
-		td.style.width = 'auto'
-		td.style.border = '1px solid black';
-}
-
-
+/**
+ * Cria tabela a partir das informações da lista
+ */
 function criaTabela(){
 	const body: HTMLElement = document.body as HTMLElement;
 	const table: HTMLTableElement = document.createElement('table') as HTMLTableElement;
@@ -56,42 +45,49 @@ function criaTabela(){
 	table.style.border = '1px solid black';
 	for(let colum = 0; colum < listaPessoas.length; colum++){
 		const tr: HTMLTableRowElement = table.insertRow();
-		criaId(tr, colum);
-		criaNome(tr, colum);
-		criaBio(tr, colum);
+		criaInformacoes(tr, colum);
 	}
 	body.appendChild(table);
 }
-
 criaTabela();
 
-
-
-//pega o index do id indicado
+/**
+ * pega o index do id indicado
+ * @param id id do item pedido
+ * @returns Index do item na lista
+ */
 function pegaIndex(id:number): number | string{
-	for (let index:number = 0; index < listaPessoas.length;index++){
-		if (listaPessoas[index].id == id){
-			return index;
+	for (let indice:number = 0; indice < listaPessoas.length;indice++){
+		if (listaPessoas[indice].id == id){
+			return indice;
 		}
 	}
 	return "404: Id não econtrado";
 }
 
-//muda o item marcado no checkbox com a string especificada
+/**
+ * muda o item marcado no checkbox com a string especificada
+ * @param id - Id do item a ser mudado
+ * @param string_nome - Novo valor do nome
+ * @param string_bio - Novo valor da bio
+ * @param name - boolean, True se o checkbox esta marcada
+ * @param bio - boolean, True se o checkbox esta marcada
+ * @returns - Mudança efeituada ou erro econtrado.
+*/
 function mudaItem(id: number, string_nome: string, name: boolean=false, bio: boolean=false, string_bio:string):string{
-	let index: number | string = pegaIndex(id);
-	if(listaPessoas[index]){
+	let indice: number | string = pegaIndex(id);
+	if(listaPessoas[indice]){
 		if(name == true && bio == false){
-			listaPessoas[index].name = string_nome;
+			listaPessoas[indice].name = string_nome;
 			return "Nome mudado";
 		}
 		else if(bio == true && name == false){
-			listaPessoas[index].bio = string_bio;
+			listaPessoas[indice].bio = string_bio;
 			return "Bio mudada";
 		}
 		else if(bio == true && name == true){
-			listaPessoas[index].bio = string_bio;
-			listaPessoas[index].name = string_nome;
+			listaPessoas[indice].bio = string_bio;
+			listaPessoas[indice].name = string_nome;
 			return "Bio e nome mudados";
 		}
 		else{
@@ -103,11 +99,15 @@ function mudaItem(id: number, string_nome: string, name: boolean=false, bio: boo
 	}
 }
 
-//Deleta um item da tabela a partir do id passado
+/**
+ * Deleta um item da tabela a partir do id passado
+ * @param id Id do item a ser deletado
+ * @returns Item deletado ou Id não encontardo
+ */
 function deletarItem(id:number):string{
-	let index: number | string = pegaIndex(id);
-	if (listaPessoas[index]){
-		const novo_index: number = Number(index);
+	let indice: number | string = pegaIndex(id);
+	if (listaPessoas[indice]){
+		const novo_index: number = Number(indice);
 		listaPessoas.splice(novo_index,1);
 		return "Item deletado";
 	}
@@ -116,16 +116,19 @@ function deletarItem(id:number):string{
 	}
 }
 
-//Exclui a tabela antiga e cria uma nova com os valores atualizados.
+/**
+ * Exclui a tabela antiga e cria uma nova com os valores atualizados.
+ */
 function recarregarTabela():void{
 	const body:HTMLElement = document.body as HTMLElement
-	let form = document.getElementById('tabela')
-	body.removeChild(form)
+	let tabela = document.getElementById('tabela')
+	body.removeChild(tabela)
 	criaTabela();
 }
 
-//Chama a função mudaItem passando os parâmetros recebidos pelo formulário.
-//E chama a função recarregarTabela
+/**
+ * Chama a função mudaItem passando os parâmetros recebidos pelo formulário e chama a função recarregarTabela
+ */
 function mudanca():void{
 	const id_mudar: HTMLInputElement = document.getElementById('id_mudar') as HTMLInputElement
 	const checkValue_bio: HTMLInputElement = document.getElementById('bio') as HTMLInputElement;
@@ -138,11 +141,12 @@ function mudanca():void{
 	recarregarTabela();
 }
 
-//Deleta a partir do id dado na pagina e chama a função recarregarTabela.
+/**
+ * Deleta a partir do id dado na pagina e chama a função recarregarTabela.
+ */
 function deletar(){
 	const id_deletar: HTMLInputElement = document.getElementById("id_del") as HTMLInputElement;
 	const id: number = Number(id_deletar.value);
 	deletarItem(id);
 	recarregarTabela();
-
 }
