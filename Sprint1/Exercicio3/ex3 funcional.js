@@ -38,7 +38,10 @@ function valorMedio(lista) {
  * @returns Uma lista contendo maior valor, menor valor e o valor médio, nessa ordem.
  */
 function valores(lista) {
-    if ((lista.every(item => typeof (item) === "number")) == false) {
+    if (lista.length == 0) {
+        return "lista vazia";
+    }
+    else if ((lista.every(item => typeof (item) === "number")) == false) {
         return "Item não é um número";
     }
     else {

@@ -12,6 +12,9 @@ let numbersList = [1, 2, 3, 4, 5];
  * @returns Retorna uma lista com o maior e menor valor e o valor médio, nessa ordem
  */
 function getValues(lista) {
+    if (lista.length == 0) {
+        return "Lista vazia";
+    }
     let newList = [];
     let sum = 0;
     for (let index in lista) {
