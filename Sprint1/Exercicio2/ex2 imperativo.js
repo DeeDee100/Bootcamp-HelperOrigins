@@ -25,12 +25,7 @@ function getIndex(id) {
  */
 function getBio(id) {
     let index = getIndex(id);
-    if (list[index]) {
-        return list[index]['bio'];
-    }
-    else {
-        return undefined;
-    }
+    return list[index] ? list[index].bio : "Id não encontrado";
 }
 /**
  *
@@ -39,12 +34,7 @@ function getBio(id) {
  */
 function getName(id) {
     let index = getIndex(id);
-    if (list[index]) {
-        return list[index].name;
-    }
-    else {
-        return undefined;
-    }
+    return list[index] ? list[index].name : "Id não encontrado";
 }
 /**
  *
@@ -59,7 +49,7 @@ function delElement(id) {
         return "Item deletado";
     }
     else {
-        return undefined;
+        return "Id não encontrado";
     }
 }
 /**
@@ -91,9 +81,7 @@ function change(id, mudanca, name = false, bio = false, bio_opcional) {
         }
     }
     else {
-        return new Error("Id não encontrada");
+        return "Id não encontrado";
     }
 }
-console.log(getName(1));
-console.log(getName(9));
 //# sourceMappingURL=ex2%20imperativo.js.map
