@@ -10,13 +10,13 @@ let list = [
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." },
     { "id": 7, "name": "Dee Dee", "bio": "Bio aqui luls" }
 ];
-function getId(id) {
+function getIndex(id) {
     for (let index = 0; index < list.length; index++) {
         if (list[index].id == id) {
             return index;
         }
     }
-    return "404: Id não econtrado";
+    return undefined;
 }
 /**
  *
@@ -24,12 +24,12 @@ function getId(id) {
  * @returns Bio em caso de id válido | "Id não encontrado" em caso de id inválido
  */
 function getBio(id) {
-    let index = getId(id);
+    let index = getIndex(id);
     if (list[index]) {
         return list[index]['bio'];
     }
     else {
-        return "Id não encontrado";
+        return undefined;
     }
 }
 /**
@@ -38,12 +38,12 @@ function getBio(id) {
  * @returns Nome em caso de id válido | "Id não encontrado" em caso de id inválido
  */
 function getName(id) {
-    let index = getId(id);
+    let index = getIndex(id);
     if (list[index]) {
         return list[index].name;
     }
     else {
-        return "Id não encontrado";
+        return undefined;
     }
 }
 /**
@@ -52,14 +52,14 @@ function getName(id) {
  * @returns "item deletado" em caso de id válido | "Id não encontrado" caso id inválido
  */
 function delElement(id) {
-    let index = getId(id);
+    let index = getIndex(id);
     if (list[index]) {
         const novo_index = Number(index);
         list.splice(novo_index, 1);
         return "Item deletado";
     }
     else {
-        return "Id não encontrado";
+        return undefined;
     }
 }
 /**
@@ -71,7 +71,7 @@ function delElement(id) {
  * @param mudanca_opcional Novo texto para a bio - Opcional
  */
 function change(id, mudanca, name = false, bio = false, bio_opcional) {
-    let index = getId(id);
+    let index = getIndex(id);
     if (list[index]) {
         if (name == true && bio == false) {
             list[index].name = mudanca;
@@ -91,11 +91,9 @@ function change(id, mudanca, name = false, bio = false, bio_opcional) {
         }
     }
     else {
-        return "Id não encontrado";
+        return new Error("Id não encontrada");
     }
 }
-console.log(list);
-console.log();
-console.log(delElement(7));
-console.log(list);
+console.log(getName(1));
+console.log(getName(9));
 //# sourceMappingURL=ex2%20imperativo.js.map

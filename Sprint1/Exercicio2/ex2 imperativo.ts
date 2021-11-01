@@ -18,13 +18,13 @@ let list: Array<Person> = [
 	{"id" : 7, "name": "Dee Dee", "bio": "Bio aqui luls"}
 ];
 
-function getId(id:number): number | string{
+function getIndex(id:number): number | undefined{
 	for (let index:number = 0; index < list.length;index++){
 		if (list[index].id == id){
 			return index;
 		}
 	}
-	return "404: Id não econtrado";
+	return undefined;
 }
 
 /**
@@ -33,13 +33,8 @@ function getId(id:number): number | string{
  * @returns Bio em caso de id válido | "Id não encontrado" em caso de id inválido
  */
  function getBio(id:number):string{
-	let index: number | string = getId(id);
-	if (list[index]){
-		return list[index]['bio'];
-	}
-	else{
-		return "Id não encontrado";
-	}
+	let index: number | string = getIndex(id);
+	return list[index] ? list[index].bio : "Id não encontrado"
 }
 
 /**
@@ -48,13 +43,8 @@ function getId(id:number): number | string{
  * @returns Nome em caso de id válido | "Id não encontrado" em caso de id inválido
  */
 function getName(id:number):string{
-	let index: number | string = getId(id);
-	if (list[index]){
-		return list[index].name;
-	}
-	else{
-		return "Id não encontrado";
-	}
+	let index: number | string = getIndex(id);
+	return list[index] ? list[index].name : "Id não encontrado"
 }
 
 /**
@@ -63,7 +53,7 @@ function getName(id:number):string{
  * @returns "item deletado" em caso de id válido | "Id não encontrado" caso id inválido
  */
 function delElement(id:number):string{
-	let index: number | string = getId(id);
+	let index: number | string = getIndex(id);
 	if (list[index]){
 		const novo_index: number = Number(index);
 		list.splice(novo_index,1);
@@ -83,7 +73,7 @@ function delElement(id:number):string{
  * @param mudanca_opcional Novo texto para a bio - Opcional
  */
 function change(id: number, mudanca: string, name: boolean=false, bio: boolean=false, bio_opcional?:string):string{
-	let index: number | string = getId(id);
+	let index: number | string = getIndex(id);
 	if(list[index]){
 		if(name == true && bio == false){
 			list[index].name = mudanca;

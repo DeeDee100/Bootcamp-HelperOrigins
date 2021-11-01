@@ -17,14 +17,12 @@ function deleteFuncional(id) {
     return novaLista;
 }
 function updateFuncional(id, campo, mudanca) {
-    let novaLista = [...lista];
-    const index = novaLista.findIndex(item => item["id"] == id);
-    if (novaLista[index]) {
-        novaLista[index][campo] = mudanca;
-        return novaLista;
-    }
-    else {
-        return "ERROR: Mudança não executada";
-    }
+    let novaLista = lista.map(item => {
+        if (item.id == id) {
+            return Object.assign(Object.assign({}, item), { name: mudanca || item.name, bio: mudanca || item.bio });
+        }
+        return item;
+    });
+    return novaLista;
 }
 //# sourceMappingURL=ex2%20funcional.js.map

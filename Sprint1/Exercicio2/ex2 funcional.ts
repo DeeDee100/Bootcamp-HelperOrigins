@@ -24,14 +24,16 @@ function deleteFuncional(id: number): Array<Person>{
 	return novaLista;
 }
 
-function updateFuncional(id: number, campo: 'name' | 'bio', mudanca: string): string | Array<Person>{
-	let novaLista:  Array<Person> = [...lista];
-	const index: number = novaLista.findIndex(item => item["id"] == id);
-	if (novaLista[index]){
-		novaLista[index][campo] = mudanca;
-		return novaLista;
-	}
-	else{
-		return "ERROR: Mudança não executada";
-	}
+function updateFuncional(id: number, campo: 'name' | 'bio', mudanca: string): Array<Person>{
+	let novaLista:  Array<Person> = lista.map( item =>{
+		if (item.id == id){
+			return {
+				...item,
+				name:mudanca || item.name,
+				bio: mudanca || item.bio
+			}
+		}
+		return item;
+	});
+	return novaLista;
 }
