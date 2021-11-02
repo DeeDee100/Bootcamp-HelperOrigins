@@ -1,11 +1,10 @@
-//  Xa) Crie uma função que retorne a bio do id passado
-//  Xb) Crie uma função que retorne o name do id passado
-//  Xc) Crie uma função que apague um item da lista a partir de um id passado
-//  Xd) Crie uma função que altere a bio ou o name a partir de um id passado
-//  Xe) Demonstre todas as funções com o paradigma funcional e com o imperativo
-
 interface Person{
 	id: number;
+	name: string;
+	bio: string;
+}
+
+interface Mudar{
 	name: string;
 	bio: string;
 }
@@ -64,18 +63,12 @@ function deleteElement(id:number):string{
 	}
 }
 
-interface Mudar{
-	name: string;
-	bio: string;
-}
-
 /**
- *
+ * Função para mudar nome e/ou bio de um elemento da lista
  * @param id Id a ser mudado
+ * @param mudanca Objeto onde será passa a string no formato {name: "string", bio: "strign"}
  * @param name Boolean, true se for o item a ser mudado - Default = false
  * @param bio Boolean, true se for o item a ser mudado - Default = false
- * @param mudanca Novo texto para o parametro passado, caso os dois sejam "true" é o texto para o nome - Default = ""
- * @param mudanca_opcional Novo texto para a bio - Opcional
  */
 function change(id: number, mudanca: Mudar, name: boolean=false, bio: boolean=false):string{
 	let index: number | string = getIndex(id);

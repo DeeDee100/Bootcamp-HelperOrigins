@@ -1,8 +1,3 @@
-//  Xa) Crie uma função que retorne a bio do id passado
-//  Xb) Crie uma função que retorne o name do id passado
-//  Xc) Crie uma função que apague um item da lista a partir de um id passado
-//  Xd) Crie uma função que altere a bio ou o name a partir de um id passado
-//  Xe) Demonstre todas as funções com o paradigma funcional e com o imperativo
 let list = [
     { "id": 1, "name": "Ada Lovelace", "bio": "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina" },
     { "id": 2, "name": "Alan Turing", "bio": "Alan Turing foi um matemático, cientista da computação, lógico, criptoanalista, filósofo e biólogo teórico britânico, ele é amplamente considerado o pai da ciência da computação teórica e da inteligência artificia" },
@@ -53,12 +48,11 @@ function deleteElement(id) {
     }
 }
 /**
- *
+ * Função para mudar nome e/ou bio de um elemento da lista
  * @param id Id a ser mudado
+ * @param mudanca Objeto onde será passa a string no formato {name: "string", bio: "strign"}
  * @param name Boolean, true se for o item a ser mudado - Default = false
  * @param bio Boolean, true se for o item a ser mudado - Default = false
- * @param mudanca Novo texto para o parametro passado, caso os dois sejam "true" é o texto para o nome - Default = ""
- * @param mudanca_opcional Novo texto para a bio - Opcional
  */
 function change(id, mudanca, name = false, bio = false) {
     let index = getIndex(id);
