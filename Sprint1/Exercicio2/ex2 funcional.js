@@ -13,8 +13,7 @@ function getBioFuncional(id) {
     return ((_a = lista.find(item => item.id == id)) === null || _a === void 0 ? void 0 : _a.bio) || "ID Não Encontrado";
 }
 function deleteFuncional(id) {
-    const novaLista = lista.filter(item => item.id != id);
-    return novaLista;
+    return lista.filter(item => item.id != id);
 }
 function updateFuncional(id, campo, mudanca) {
     let novaLista = lista.map(item => {

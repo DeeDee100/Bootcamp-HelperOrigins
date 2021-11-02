@@ -20,8 +20,7 @@ function getBioFuncional(id: number): string {
 }
 
 function deleteFuncional(id: number): Array<Person>{
-	const novaLista: Array<Person> = lista.filter(item => item.id != id);
-	return novaLista;
+	return lista.filter(item => item.id != id);
 }
 
 function updateFuncional(id: number, campo: 'name' | 'bio', mudanca: string): Array<Person>{

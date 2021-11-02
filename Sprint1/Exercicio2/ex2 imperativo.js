@@ -41,7 +41,7 @@ function getName(id) {
  * @param id Id a ser deletado
  * @returns "item deletado" em caso de id válido | "Id não encontrado" caso id inválido
  */
-function delElement(id) {
+function deleteElement(id) {
     let index = getIndex(id);
     if (list[index]) {
         const novo_index = Number(index);
@@ -60,20 +60,20 @@ function delElement(id) {
  * @param mudanca Novo texto para o parametro passado, caso os dois sejam "true" é o texto para o nome - Default = ""
  * @param mudanca_opcional Novo texto para a bio - Opcional
  */
-function change(id, mudanca, name = false, bio = false, bio_opcional) {
+function change(id, mudanca, name = false, bio = false) {
     let index = getIndex(id);
     if (list[index]) {
         if (name == true && bio == false) {
-            list[index].name = mudanca;
+            list[index].name = mudanca.name;
             return "Nome mudado";
         }
         else if (bio == true && name == false) {
-            list[index].bio = mudanca;
+            list[index].bio = mudanca.bio;
             return "Bio mudada";
         }
         else if (bio == true && name == true) {
-            list[index].bio = mudanca;
-            list[index].name = bio_opcional;
+            list[index].bio = mudanca.bio;
+            list[index].name = mudanca.name;
             return "Bio e nome mudados";
         }
         else {
@@ -84,4 +84,8 @@ function change(id, mudanca, name = false, bio = false, bio_opcional) {
         return "Id não encontrado";
     }
 }
+console.log(change(1, { name: "wqeuywequiyewqw", bio: "BIO" }, true, true));
+console.log(change(2, { name: "?????", bio: "BIO" }, true, false));
+console.log(change(2, { name: "?????", bio: "BIO" }, false, true));
+console.log(list);
 //# sourceMappingURL=ex2%20imperativo.js.map

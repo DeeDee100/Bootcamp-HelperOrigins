@@ -52,7 +52,7 @@ function getName(id:number):string{
  * @param id Id a ser deletado
  * @returns "item deletado" em caso de id válido | "Id não encontrado" caso id inválido
  */
-function delElement(id:number):string{
+function deleteElement(id:number):string{
 	let index: number | string = getIndex(id);
 	if (list[index]){
 		const novo_index: number = Number(index);
@@ -64,6 +64,11 @@ function delElement(id:number):string{
 	}
 }
 
+interface Mudar{
+	name: string;
+	bio: string;
+}
+
 /**
  *
  * @param id Id a ser mudado
@@ -72,20 +77,20 @@ function delElement(id:number):string{
  * @param mudanca Novo texto para o parametro passado, caso os dois sejam "true" é o texto para o nome - Default = ""
  * @param mudanca_opcional Novo texto para a bio - Opcional
  */
-function change(id: number, mudanca: string, name: boolean=false, bio: boolean=false, bio_opcional?:string):string{
+function change(id: number, mudanca: Mudar, name: boolean=false, bio: boolean=false):string{
 	let index: number | string = getIndex(id);
 	if(list[index]){
 		if(name == true && bio == false){
-			list[index].name = mudanca;
+			list[index].name = mudanca.name;
 			return "Nome mudado";
 		}
 		else if(bio == true && name == false){
-			list[index].bio = mudanca;
+			list[index].bio = mudanca.bio;
 			return "Bio mudada";
 		}
 		else if(bio == true && name == true){
-			list[index].bio = mudanca;
-			list[index].name = bio_opcional;
+			list[index].bio = mudanca.bio;
+			list[index].name = mudanca.name;
 			return "Bio e nome mudados";
 		}
 		else{
@@ -96,3 +101,8 @@ function change(id: number, mudanca: string, name: boolean=false, bio: boolean=f
 		return "Id não encontrado";
 	}
 }
+
+console.log(change(1,{name: "wqeuywequiyewqw", bio:"BIO"},true,true));
+console.log(change(2,{name: "?????", bio:"BIO"},true,false));
+console.log(change(2,{name: "?????", bio:"BIO"},false,true));
+console.log(list);
