@@ -28,19 +28,6 @@ function criaTabela() {
     body.appendChild(tabela);
 }
 criaTabela();
-// /**
-//  * pega o index do id indicado
-//  * @param id id do item pedido
-//  * @returns Index do item na lista
-//  */
-// function pegaIndex(id:number): number | string{
-// 	for (let indice:number = 0; indice < listaPessoas.length;indice++){
-// 		if (listaPessoas[indice].id == id){
-// 			return indice;
-// 		}
-// 	}
-// 	return "404: Id não econtrado";
-// }
 /**
  * muda o item marcado no checkbox com a string especificada
  * @param id - Id do item a ser mudado
