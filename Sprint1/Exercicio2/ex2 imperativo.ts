@@ -48,9 +48,8 @@ function getName(id:number):string{
  */
 function deleteElement(id:number):string{
 	let index: number = getIndex(id);
-	if (list[index]){
-		const index_deletado: number = Number(index);
-		list.splice(index_deletado, 1);
+	if (index){
+		list.splice(index, 1);
 		return "Item deletado";
 	}
 	else {
@@ -78,5 +77,6 @@ function change(id: number, campo: "name"| 'bio', mudanca: string):string | Erro
 
 console.log(change(1,"name", "DeeDee"));
 console.log(change(1,"bio", "BIO"));
+console.log(deleteElement(2));
 console.log(list);
 console.log(change(9,"bio", "BIO"));

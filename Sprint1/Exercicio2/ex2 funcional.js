@@ -4,16 +4,16 @@ let lista = [
     { "id": 3, "name": "Nikola Tesla", "bio": "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada." },
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." }
 ];
-function getIdFuncional(lista, id) {
+function getPersonFuncional(lista, id) {
     return lista.find(item => item.id == id);
 }
 function getNameFuncional(lista, id) {
     var _a;
-    return ((_a = getIdFuncional(lista, id)) === null || _a === void 0 ? void 0 : _a.name) || "ID Não Encontrado";
+    return ((_a = getPersonFuncional(lista, id)) === null || _a === void 0 ? void 0 : _a.name) || "ID Não Encontrado";
 }
 function getBioFuncional(lista, id) {
     var _a;
-    return ((_a = getIdFuncional(lista, id)) === null || _a === void 0 ? void 0 : _a.bio) || "ID Não Encontrado";
+    return ((_a = getPersonFuncional(lista, id)) === null || _a === void 0 ? void 0 : _a.bio) || "ID Não Encontrado";
 }
 function deleteFuncional(lista, id) {
     return lista.filter(item => item.id != id);

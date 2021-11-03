@@ -38,9 +38,9 @@ function getName(id) {
  */
 function deleteElement(id) {
     let index = getIndex(id);
-    if (list[index]) {
-        const novo_index = Number(index);
-        list.splice(novo_index, 1);
+    if (index) {
+        //const index_deletado: number = Number(index);
+        list.splice(index, 1);
         return "Item deletado";
     }
     else {
@@ -66,6 +66,7 @@ function change(id, campo, mudanca) {
 }
 console.log(change(1, "name", "DeeDee"));
 console.log(change(1, "bio", "BIO"));
+console.log(deleteElement(2));
 console.log(list);
 console.log(change(9, "bio", "BIO"));
 //# sourceMappingURL=ex2%20imperativo.js.map
