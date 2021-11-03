@@ -6,9 +6,9 @@ let listaNumeros = [1, 2, 3, 4, 5,];
  * @returns Maior valor
  */
 function maiorValor(lista) {
-    let newLista = [...lista];
-    newLista.sort();
-    return newLista[(newLista.length) - 1];
+    let novaLista = [...lista];
+    novaLista.sort();
+    return novaLista[(novaLista.length) - 1] || 0;
 }
 /**
  * @name menorValor
@@ -17,9 +17,9 @@ function maiorValor(lista) {
  * @returns Menor valor
  */
 function menorValor(lista) {
-    let newLista = [...lista];
-    newLista.sort();
-    return newLista[0];
+    let novaLista = [...lista];
+    novaLista.sort();
+    return novaLista[0] || 0;
 }
 /**
  *
@@ -27,9 +27,9 @@ function menorValor(lista) {
  * @returns valor médio
  */
 function valorMedio(lista) {
-    let newLista = [...lista];
-    let soma = newLista.reduce((numero1, numero2) => numero1 + numero2, 0);
-    let resultado = soma / newLista.length;
+    let novaLista = [...lista];
+    let soma = novaLista.reduce((numero1, numero2) => numero1 + numero2, 0);
+    let resultado = soma / (novaLista.length || 1);
     return resultado;
 }
 /**
@@ -37,11 +37,11 @@ function valorMedio(lista) {
  * @param lista Lista a ser calculado maior e menor valor e valor médio.
  * @returns Uma lista contendo maior valor, menor valor e o valor médio, nessa ordem.
  */
-function valores(lista) {
+function maxMinMedia(lista) {
     if (lista.length == 0) {
         return "lista vazia";
     }
-    else if ((lista.every(item => typeof (item) === "number")) == false) {
+    else if (!lista.every(item => typeof (item) === "number")) {
         return "Item não é um número";
     }
     else {
@@ -52,6 +52,6 @@ function valores(lista) {
         return result;
     }
 }
-console.log(valores(listaMista));
-console.log(valores(listaNumeros));
+console.log(maxMinMedia(listaMista));
+console.log(maxMinMedia(listaNumeros));
 //# sourceMappingURL=ex3%20funcional.js.map

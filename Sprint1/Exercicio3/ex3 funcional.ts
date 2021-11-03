@@ -7,9 +7,9 @@ let listaNumeros = [1,2,3,4,5,];
  * @returns Maior valor
  */
 function maiorValor(lista: Array<any>): number{
-	let newLista: Array<number> = [...lista];
-	newLista.sort();
-	return newLista[(newLista.length) - 1]
+	let novaLista: Array<number> = [...lista];
+	novaLista.sort();
+	return novaLista[(novaLista.length) - 1] || 0
 }
 
 /**
@@ -19,9 +19,9 @@ function maiorValor(lista: Array<any>): number{
  * @returns Menor valor
  */
 function menorValor(lista: Array<number>): number{
-	let newLista: Array<number> = [...lista];
-	newLista.sort();
-	return newLista[0];
+	let novaLista: Array<number> = [...lista];
+	novaLista.sort();
+	return novaLista[0] || 0;
 }
 
 /**
@@ -30,9 +30,9 @@ function menorValor(lista: Array<number>): number{
  * @returns valor médio
  */
 function valorMedio(lista: Array<number>): number{
-	let newLista: Array<number> = [...lista];
-	let soma: number = newLista.reduce((numero1, numero2) => numero1 + numero2, 0);
-	let resultado: number = soma / newLista.length;
+	let novaLista: Array<number> = [...lista];
+	let soma: number = novaLista.reduce((numero1, numero2) => numero1 + numero2, 0);
+	let resultado: number = soma / (novaLista.length || 1);
 	return resultado;
 }
 
@@ -41,11 +41,11 @@ function valorMedio(lista: Array<number>): number{
  * @param lista Lista a ser calculado maior e menor valor e valor médio.
  * @returns Uma lista contendo maior valor, menor valor e o valor médio, nessa ordem.
  */
-function valores(lista: Array<any>): string | Array<number>{
+function maxMinMedia(lista: Array<any>): string | Array<number>{
 	if (lista.length == 0 ){
 		return "lista vazia"
 	}
-	else if ((lista.every(item => typeof(item) === "number")) == false){
+	else if (!lista.every(item => typeof(item) === "number")){
 		return "Item não é um número";
 	}
 	else{
@@ -57,5 +57,5 @@ function valores(lista: Array<any>): string | Array<number>{
 	}
 }
 
-console.log(valores(listaMista));
-console.log(valores(listaNumeros));
+console.log(maxMinMedia(listaMista));
+console.log(maxMinMedia(listaNumeros));
