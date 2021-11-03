@@ -4,11 +4,6 @@ interface Person{
 	bio: string;
 }
 
-interface Mudar{
-	name: string;
-	bio: string;
-}
-
 let list: Array<Person> = [
 	{"id" : 1, "name": "Ada Lovelace", "bio" : "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina"},
 	{"id" : 2, "name": "Alan Turing", "bio" : "Alan Turing foi um matemático, cientista da computação, lógico, criptoanalista, filósofo e biólogo teórico britânico, ele é amplamente considerado o pai da ciência da computação teórica e da inteligência artificia"},
@@ -32,7 +27,7 @@ function getIndex(id:number): number | undefined{
  * @returns Bio em caso de id válido | "Id não encontrado" em caso de id inválido
  */
  function getBio(id:number):string{
-	let index: number | string = getIndex(id);
+	let index: number = getIndex(id);
 	return list[index] ? list[index].bio : "Id não encontrado"
 }
 
@@ -42,7 +37,7 @@ function getIndex(id:number): number | undefined{
  * @returns Nome em caso de id válido | "Id não encontrado" em caso de id inválido
  */
 function getName(id:number):string{
-	let index: number | string = getIndex(id);
+	let index: number = getIndex(id);
 	return list[index] ? list[index].name : "Id não encontrado"
 }
 
@@ -52,10 +47,10 @@ function getName(id:number):string{
  * @returns "item deletado" em caso de id válido | "Id não encontrado" caso id inválido
  */
 function deleteElement(id:number):string{
-	let index: number | string = getIndex(id);
+	let index: number = getIndex(id);
 	if (list[index]){
-		const novo_index: number = Number(index);
-		list.splice(novo_index,1);
+		const index_deletado: number = Number(index);
+		list.splice(index_deletado, 1);
 		return "Item deletado";
 	}
 	else {
@@ -71,16 +66,10 @@ function deleteElement(id:number):string{
  * @returns Mudança ocorrida ou Mensagem de erro
  */
 function change(id: number, campo: "name"| 'bio', mudanca: string):string | Error{
-	let index: number | string = getIndex(id);
+	let index: number = getIndex(id);
 	if(list[index]){
-		if (campo == 'name'){
-			list[index][campo] = mudanca;
-			return "Name modificado";
-		}
-		else if (campo == 'bio'){
-			list[index][campo] = mudanca;
-			return "Bio modificado";
-		}
+		list[index][campo] = mudanca;
+		return `${campo} alterado com sucesso`
 	}
 	else{
 		return new Error("Id não encontrado");

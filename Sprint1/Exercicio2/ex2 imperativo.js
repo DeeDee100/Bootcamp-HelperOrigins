@@ -57,14 +57,8 @@ function deleteElement(id) {
 function change(id, campo, mudanca) {
     let index = getIndex(id);
     if (list[index]) {
-        if (campo == 'name') {
-            list[index][campo] = mudanca;
-            return "Name modificado";
-        }
-        else if (campo == 'bio') {
-            list[index][campo] = mudanca;
-            return "Bio modificado";
-        }
+        list[index][campo] = mudanca;
+        return `${campo} alterado com sucesso`;
     }
     else {
         return new Error("Id não encontrado");

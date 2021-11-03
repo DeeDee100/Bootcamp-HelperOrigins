@@ -11,19 +11,23 @@ let lista: Array<Person> = [
 	{"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}
 ];
 
-function getNameFuncional(id: number): string {
-	return lista.find(item => item.id == id)?.name || "ID Não Encontrado";
+function getPersonFuncional(lista: Array<Person>, id: number): Person{
+	return lista.find(item => item.id == id)
 }
 
-function getBioFuncional(id: number): string {
-	return lista.find(item => item.id == id)?.bio || "ID Não Encontrado";
+function getNameFuncional(lista: Array<Person>, id: number): string {
+	return getPersonFuncional(lista, id)?.name || "ID Não Encontrado";
 }
 
-function deleteFuncional(id: number): Array<Person>{
+function getBioFuncional(lista: Array<Person>, id: number): string {
+	return getPersonFuncional(lista, id)?.bio || "ID Não Encontrado";
+}
+
+function deleteFuncional(lista: Array<Person>, id: number): Array<Person>{
 	return lista.filter(item => item.id != id);
 }
 
-function updateFuncional(id: number, campo: 'name' | 'bio', mudanca: string): Array<Person>{
+function updateFuncional(lista: Array<Person>, id: number, campo: 'name' | 'bio', mudanca: string): Array<Person>{
 	let novaLista:  Array<Person> = lista.map( item =>{
 		if (item.id == id){
 			return {
@@ -36,3 +40,5 @@ function updateFuncional(id: number, campo: 'name' | 'bio', mudanca: string): Ar
 	});
 	return novaLista;
 }
+
+console.log(getNameFuncional(lista, 1));
