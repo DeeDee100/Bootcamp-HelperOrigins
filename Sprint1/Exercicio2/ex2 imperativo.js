@@ -48,11 +48,11 @@ function deleteElement(id) {
     }
 }
 /**
- * Função para mudar nome e/ou bio de um elemento da lista
- * @param id Id a ser mudado
- * @param mudanca Objeto onde será passa a string no formato {name: "string", bio: "strign"}
- * @param name Boolean, true se for o item a ser mudado - Default = false
- * @param bio Boolean, true se for o item a ser mudado - Default = false
+ * Função para mudar nome ou bio de um elemento da lista
+ * @param id Id do item a ser mudado
+ * @param campo campo a ser mudado, aceita apenas "name" ou "bio"
+ * @param mudanca Nova strign para o campo
+ * @returns Mudança ocorrida ou Mensagem de erro
  */
 function change(id, campo, mudanca) {
     let index = getIndex(id);
@@ -67,10 +67,11 @@ function change(id, campo, mudanca) {
         }
     }
     else {
-        return "Id não encontrado";
+        return new Error("Id não encontrado");
     }
 }
 console.log(change(1, "name", "DeeDee"));
 console.log(change(1, "bio", "BIO"));
 console.log(list);
+console.log(change(9, "bio", "BIO"));
 //# sourceMappingURL=ex2%20imperativo.js.map

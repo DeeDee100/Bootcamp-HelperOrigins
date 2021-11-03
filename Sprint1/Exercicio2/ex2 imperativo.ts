@@ -64,13 +64,13 @@ function deleteElement(id:number):string{
 }
 
 /**
- * Função para mudar nome e/ou bio de um elemento da lista
- * @param id Id a ser mudado
- * @param mudanca Objeto onde será passa a string no formato {name: "string", bio: "strign"}
- * @param name Boolean, true se for o item a ser mudado - Default = false
- * @param bio Boolean, true se for o item a ser mudado - Default = false
+ * Função para mudar nome ou bio de um elemento da lista
+ * @param id Id do item a ser mudado
+ * @param campo campo a ser mudado, aceita apenas "name" ou "bio"
+ * @param mudanca Nova strign para o campo
+ * @returns Mudança ocorrida ou Mensagem de erro
  */
-function change(id: number, campo: "name"| 'bio', mudanca: string):string{
+function change(id: number, campo: "name"| 'bio', mudanca: string):string | Error{
 	let index: number | string = getIndex(id);
 	if(list[index]){
 		if (campo == 'name'){
@@ -83,10 +83,11 @@ function change(id: number, campo: "name"| 'bio', mudanca: string):string{
 		}
 	}
 	else{
-		return "Id não encontrado";
+		return new Error("Id não encontrado");
 	}
 }
 
 console.log(change(1,"name", "DeeDee"));
 console.log(change(1,"bio", "BIO"));
 console.log(list);
+console.log(change(9,"bio", "BIO"));
