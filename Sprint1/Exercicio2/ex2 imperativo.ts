@@ -70,24 +70,16 @@ function deleteElement(id:number):string{
  * @param name Boolean, true se for o item a ser mudado - Default = false
  * @param bio Boolean, true se for o item a ser mudado - Default = false
  */
-function change(id: number, mudanca: Mudar, name: boolean=false, bio: boolean=false):string{
+function change(id: number, campo: "name"| 'bio', mudanca: string):string{
 	let index: number | string = getIndex(id);
 	if(list[index]){
-		if(name == true && bio == false){
-			list[index].name = mudanca.name;
-			return "Nome mudado";
+		if (campo == 'name'){
+			list[index][campo] = mudanca;
+			return "Name modificado";
 		}
-		else if(bio == true && name == false){
-			list[index].bio = mudanca.bio;
-			return "Bio mudada";
-		}
-		else if(bio == true && name == true){
-			list[index].bio = mudanca.bio;
-			list[index].name = mudanca.name;
-			return "Bio e nome mudados";
-		}
-		else{
-			return "Escolha entre bio ou name";
+		else if (campo == 'bio'){
+			list[index][campo] = mudanca;
+			return "Bio modificado";
 		}
 	}
 	else{
@@ -95,7 +87,6 @@ function change(id: number, mudanca: Mudar, name: boolean=false, bio: boolean=fa
 	}
 }
 
-console.log(change(1,{name: "wqeuywequiyewqw", bio:"BIO"},true,true));
-console.log(change(2,{name: "?????", bio:"BIO"},true,false));
-console.log(change(2,{name: "?????", bio:"BIO"},false,true));
+console.log(change(1,"name", "DeeDee"));
+console.log(change(1,"bio", "BIO"));
 console.log(list);
