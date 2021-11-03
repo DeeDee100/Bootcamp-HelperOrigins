@@ -7,11 +7,11 @@
 	<title>Helpper Origins</title>
 </head>
 <body>
-	<div id="acoes">
-		<div id="mudar" >
-			<br>
+	<script type="module" src="ex4.js" ></script>
+	
+	<div>
 			<p>Selecione a mudança que deseja:</p>
-			<form>
+			<form >
 				<label for="id_mudar">Selecione o ID a ser mudado: </label>
 				<input type="number" id="id_mudar">
 				<br>
@@ -26,17 +26,18 @@
 				<label for="bio">String para a Bio </label>
 				<input type="text" id="bio_string" >
 				<br>
-				<input type="button" value="Modificar" onclick="mudanca()">
+				<input type="button" value="Modificar" id="buttonMudar" >
 			</form>
 		</div>
-		<div>
+		
+	<div>
 			<p>Selecione o ID que deseja deletar: 
 			<input type="number" id="id_del">
-			<input type="button" value="deletar" onclick="deletar()">
+			<input type="button" value="deletar" id="buttonDeletar">
 			</p>
 		</div>
 	</div> 
-	<script src="ex4.js"></script>
+
 
 </body>
 </html>

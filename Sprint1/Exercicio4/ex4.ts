@@ -1,9 +1,10 @@
+import { getIndex } from "../Exercicio2/ex2 imperativo.js"
+
 interface Person{
 	id: number;
 	name: string;
 	bio: string;
 }
-
 
 let listaPessoas: Array<Person> = [
 	{"id" : 1, "name": "Ada Lovelace", "bio" : "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina"},
@@ -12,58 +13,53 @@ let listaPessoas: Array<Person> = [
 	{"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}
 ];
 
-//criar elem de linha, pega o valor da lista e inserir no DOM 
-
-function criaInformacoes(tr: HTMLTableRowElement, colum: number){
-		const td_id = tr.insertCell();
-		const td_name = tr.insertCell();
-		const td_bio = tr.insertCell();
-
-		td_id.appendChild(document.createTextNode(`${listaPessoas[colum].id}`));
-		td_name.appendChild(document.createTextNode(`${listaPessoas[colum].name}`));
-		td_bio.appendChild(document.createTextNode(`${listaPessoas[colum].bio}`));
-
-		td_id.style.width = 'auto'
-		td_id.style.border = '1px solid black';
-		td_name.style.width = 'auto'
-		td_name.style.border = '1px solid black';
-		td_bio.style.width = 'auto'
-		td_bio.style.border = '1px solid black';
-}
-
 /**
  * Cria tabela a partir das informações da lista
  */
-function criaTabela(){
+function criaTabela(): void{
 	const body: HTMLElement = document.body as HTMLElement;
-	const table: HTMLTableElement = document.createElement('table') as HTMLTableElement;
-	table.id = "tabela"
+	const tabela: HTMLTableElement = document.createElement('tabela') as HTMLTableElement;
+	tabela.id = "tabela";
 
-	table.style.position = 'top';
-	table.style.width = '50%';
-	table.style.tableLayout = 'auto';
-	table.style.border = '1px solid black';
-	for(let colum = 0; colum < listaPessoas.length; colum++){
-		const tr: HTMLTableRowElement = table.insertRow();
-		criaInformacoes(tr, colum);
-	}
-	body.appendChild(table);
+	tabela.style.position = 'top';
+	tabela.style.width = '50%';
+	tabela.style.tableLayout = 'auto';
+	
+
+	listaPessoas.forEach((pessoa) => {
+		let tr =  document.createElement('tr');
+
+		let id = tr.insertCell();
+		id.appendChild(document.createTextNode(`${pessoa.id}`));
+
+		let nome = tr.insertCell();
+		nome.appendChild(document.createTextNode(`${pessoa.name}`))
+
+		let bio = tr.insertCell();
+		bio.appendChild(document.createTextNode(`${pessoa.bio}`));
+
+		tabela.appendChild(tr);
+	});
+	
+
+	body.appendChild(tabela);
 }
+
 criaTabela();
 
-/**
- * pega o index do id indicado
- * @param id id do item pedido
- * @returns Index do item na lista
- */
-function pegaIndex(id:number): number | string{
-	for (let indice:number = 0; indice < listaPessoas.length;indice++){
-		if (listaPessoas[indice].id == id){
-			return indice;
-		}
-	}
-	return "404: Id não econtrado";
-}
+// /**
+//  * pega o index do id indicado
+//  * @param id id do item pedido
+//  * @returns Index do item na lista
+//  */
+// function pegaIndex(id:number): number | string{
+// 	for (let indice:number = 0; indice < listaPessoas.length;indice++){
+// 		if (listaPessoas[indice].id == id){
+// 			return indice;
+// 		}
+// 	}
+// 	return "404: Id não econtrado";
+// }
 
 /**
  * muda o item marcado no checkbox com a string especificada
@@ -75,7 +71,7 @@ function pegaIndex(id:number): number | string{
  * @returns - Mudança efeituada ou erro econtrado.
 */
 function mudaItem(id: number, string_nome: string, name: boolean=false, bio: boolean=false, string_bio:string):string{
-	let indice: number | string = pegaIndex(id);
+	let indice: number | string = getIndex(id, listaPessoas);
 	if(listaPessoas[indice]){
 		if(name == true && bio == false){
 			listaPessoas[indice].name = string_nome;
@@ -105,7 +101,7 @@ function mudaItem(id: number, string_nome: string, name: boolean=false, bio: boo
  * @returns Item deletado ou Id não encontardo
  */
 function deletarItem(id:number):string{
-	let indice: number | string = pegaIndex(id);
+	let indice: number | string = getIndex(id, listaPessoas);
 	if (listaPessoas[indice]){
 		const novo_index: number = Number(indice);
 		listaPessoas.splice(novo_index,1);
@@ -125,6 +121,13 @@ function recarregarTabela():void{
 	body.removeChild(tabela)
 	criaTabela();
 }
+
+//document.getElementById("button_mudar").addEventListener("click",)
+const inputMudanca = document.getElementById("buttonMudar");
+inputMudanca.onclick = mudanca;
+
+const inputDeletar = document.getElementById("buttonDeletar");
+inputDeletar.onclick = deletar;
 
 /**
  * Chama a função mudaItem passando os parâmetros recebidos pelo formulário e chama a função recarregarTabela
