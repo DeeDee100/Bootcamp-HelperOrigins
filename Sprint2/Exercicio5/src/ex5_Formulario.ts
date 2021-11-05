@@ -1,8 +1,8 @@
 import { Vogals } from "../ex5_Funcao.js"
 
-function mouseClick(){
-	let texto = (document.getElementById("text") as HTMLInputElement).value;
-	let frase = new Vogals(texto);
+function mouseClick(): void{
+	let texto: string = (document.getElementById("text") as HTMLInputElement).value;
+	let frase: Vogals = new Vogals(texto);
 	alert(frase.getVogals());
 }
 

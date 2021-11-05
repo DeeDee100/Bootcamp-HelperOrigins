@@ -5,7 +5,7 @@ export class Vogals{
 		this.phrase = phrase;
 	}
 
-	getVogals(){
+	getVogals(): number{
 		const letters: Array<string> = ['a','e', 'i', 'o', 'u'];
 		const newPhrase: string = this.phrase.toLowerCase();
 		let count: number = 0;
@@ -21,5 +21,5 @@ export class Vogals{
 	}
 }
 
-let vogal = new Vogals("Dee DEEe");
+let vogal: Vogals = new Vogals("Dee DEEe");
 vogal.getVogals();
