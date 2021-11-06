@@ -5,7 +5,7 @@ let list = [
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." },
     { "id": 7, "name": "Dee Dee", "bio": "Bio aqui luls" }
 ];
-function getIndex(id) {
+export function getIndex(id, list) {
     for (let index = 0; index < list.length; index++) {
         if (list[index].id == id) {
             return index;
@@ -19,7 +19,7 @@ function getIndex(id) {
  * @returns Bio em caso de id válido | "Id não encontrado" em caso de id inválido
  */
 function getBio(id) {
-    let index = getIndex(id);
+    let index = getIndex(id, list);
     return list[index] ? list[index].bio : "Id não encontrado";
 }
 /**
@@ -28,7 +28,7 @@ function getBio(id) {
  * @returns Nome em caso de id válido | "Id não encontrado" em caso de id inválido
  */
 function getName(id) {
-    let index = getIndex(id);
+    let index = getIndex(id, list);
     return list[index] ? list[index].name : "Id não encontrado";
 }
 /**
@@ -36,10 +36,9 @@ function getName(id) {
  * @param id Id a ser deletado
  * @returns "item deletado" em caso de id válido | "Id não encontrado" caso id inválido
  */
-function deleteElement(id) {
-    let index = getIndex(id);
+export function deleteElement(id, list) {
+    let index = getIndex(id, list);
     if (index) {
-        //const index_deletado: number = Number(index);
         list.splice(index, 1);
         return "Item deletado";
     }
@@ -55,7 +54,7 @@ function deleteElement(id) {
  * @returns Mudança ocorrida ou Mensagem de erro
  */
 function change(id, campo, mudanca) {
-    let index = getIndex(id);
+    let index = getIndex(id, list);
     if (list[index]) {
         list[index][campo] = mudanca;
         return `${campo} alterado com sucesso`;
@@ -64,9 +63,5 @@ function change(id, campo, mudanca) {
         return new Error("Id não encontrado");
     }
 }
-console.log(change(1, "name", "DeeDee"));
-console.log(change(1, "bio", "BIO"));
-console.log(deleteElement(2));
-console.log(list);
-console.log(change(9, "bio", "BIO"));
+console.log(getName(2));
 //# sourceMappingURL=ex2%20imperativo.js.map

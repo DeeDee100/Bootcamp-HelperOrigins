@@ -12,7 +12,7 @@ let list: Array<Person> = [
 	{"id" : 7, "name": "Dee Dee", "bio": "Bio aqui luls"}
 ];
 
-function getIndex(id:number): number | undefined{
+function getIndex(id:number, list: Array<Person>): number | undefined{
 	for (let index:number = 0; index < list.length;index++){
 		if (list[index].id == id){
 			return index;
@@ -27,7 +27,7 @@ function getIndex(id:number): number | undefined{
  * @returns Bio em caso de id válido | "Id não encontrado" em caso de id inválido
  */
  function getBio(id:number):string{
-	let index: number = getIndex(id);
+	let index: number = getIndex(id, list);
 	return list[index] ? list[index].bio : "Id não encontrado"
 }
 
@@ -37,7 +37,7 @@ function getIndex(id:number): number | undefined{
  * @returns Nome em caso de id válido | "Id não encontrado" em caso de id inválido
  */
 function getName(id:number):string{
-	let index: number = getIndex(id);
+	let index: number = getIndex(id, list);
 	return list[index] ? list[index].name : "Id não encontrado"
 }
 
@@ -46,8 +46,8 @@ function getName(id:number):string{
  * @param id Id a ser deletado
  * @returns "item deletado" em caso de id válido | "Id não encontrado" caso id inválido
  */
-function deleteElement(id:number):string{
-	let index: number = getIndex(id);
+function deleteElement(id:number, list: Array<Person>):string{
+	let index: number = getIndex(id, list);
 	if (index){
 		list.splice(index, 1);
 		return "Item deletado";
@@ -65,7 +65,7 @@ function deleteElement(id:number):string{
  * @returns Mudança ocorrida ou Mensagem de erro
  */
 function change(id: number, campo: "name"| 'bio', mudanca: string):string | Error{
-	let index: number = getIndex(id);
+	let index: number = getIndex(id, list);
 	if(list[index]){
 		list[index][campo] = mudanca;
 		return `${campo} alterado com sucesso`
@@ -75,8 +75,4 @@ function change(id: number, campo: "name"| 'bio', mudanca: string):string | Erro
 	}
 }
 
-console.log(change(1,"name", "DeeDee"));
-console.log(change(1,"bio", "BIO"));
-console.log(deleteElement(2));
-console.log(list);
-console.log(change(9,"bio", "BIO"));
+console.log(getName(2));

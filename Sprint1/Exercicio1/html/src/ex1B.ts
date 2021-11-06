@@ -1,4 +1,3 @@
-
 function number_vogals() :void{
 	
 	let box = document.getElementById("text") as HTMLInputElement;
@@ -14,4 +13,3 @@ function number_vogals() :void{
 
 	alert(count)
 }
-

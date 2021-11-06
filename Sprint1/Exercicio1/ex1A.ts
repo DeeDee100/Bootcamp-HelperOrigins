@@ -1,5 +1,4 @@
-
-function number_vogals(phrase:string):number {
+function numeroVogais(phrase:string):number {
 
 	let count:number = 0;
 	phrase = phrase.toLowerCase()
@@ -13,6 +12,6 @@ function number_vogals(phrase:string):number {
 }
 
 
-console.log(number_vogals("Heey"));
-console.log(number_vogals("kkkkk"));
-console.log(number_vogals("DEE Dee"));
+console.log(numeroVogais("Heey"));
+console.log(numeroVogais("kkkkk"));
+console.log(numeroVogais("DEE Dee"));

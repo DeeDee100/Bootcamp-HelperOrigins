@@ -1,14 +1,14 @@
-function number_vogals(phrase:string):number {
-	let count:number = 0;
-	phrase = phrase.toLowerCase()
-	for (let char of phrase){
-		if (char == 'a' || char == 'e' || char == 'i' || char == 'o' || char == 'u'){
-			count++;
-		}
-	}
-	return count
+function numeroVogais(phrase) {
+    let count = 0;
+    phrase = phrase.toLowerCase();
+    for (let char of phrase) {
+        if (char == 'a' || char == 'e' || char == 'i' || char == 'o' || char == 'u') {
+            count++;
+        }
+    }
+    return count;
 }
-console.log(number_vogals("Heey"));
-console.log(number_vogals("kkkkk"));
-console.log(number_vogals("DEE Dee"));
+console.log(numeroVogais("Heey"));
+console.log(numeroVogais("kkkkk"));
+console.log(numeroVogais("DEE Dee"));
 //# sourceMappingURL=ex1A.js.map
