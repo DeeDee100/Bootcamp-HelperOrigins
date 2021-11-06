@@ -23,3 +23,4 @@ export class Vogals{
 
 let vogal: Vogals = new Vogals("Dee DEEe");
 vogal.getVogals();
+
