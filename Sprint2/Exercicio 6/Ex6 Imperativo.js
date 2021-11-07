@@ -1,6 +1,6 @@
 // Xa) Crie uma classe que retorne a bio do id passado
 // Xb) Crie uma classe que retorne o name do id passado
-// c) Crie uma classe que apague um item da lista a partir de um id passado
+// Xc) Crie uma classe que apague um item da lista a partir de um id passado
 // Xd) Crie uma classe que altere a bio ou o name a partir de um id passado
 // e) Demonstre todos os métodos com o paradigma funcional e com o imperativo
 // Atenção: A escolha de fazer 1 classe ou N classes é de cada pessoa
@@ -21,6 +21,7 @@ class Informations {
                 return person.bio;
             }
         }
+        return false;
     }
     getName(id) {
         for (let person of this.lista) {
@@ -28,11 +29,12 @@ class Informations {
                 return person.name;
             }
         }
+        return false;
     }
-    change(id, campo, mudanca) {
+    change(id, camp, change) {
         for (let person of this.lista) {
             if (person.id == id) {
-                person[campo] = mudanca;
+                person[camp] = change;
                 return true;
             }
         }
@@ -43,8 +45,10 @@ class Informations {
             if (person.id == id) {
                 let index = this.lista.indexOf(person);
                 this.lista.splice(index, 1);
+                return true;
             }
         }
+        return false;
     }
 }
 //# sourceMappingURL=Ex6%20Imperativo.js.map
