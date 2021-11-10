@@ -14,29 +14,29 @@ let lista: Array<Person> = [
 ];
 
 class Informacao{
-	lista: Array<Person>;
+	public lista: Array<Person>;
 
-	constructor(lista: Array<Person>){
+	public constructor(lista: Array<Person>){
 		this.lista = lista;
 	}
 
-	pegaPessoa(id: number){
+	public pegaPessoa(id: number){
 		return this.lista.find(pessoa => pessoa.id == id);
 	}
 
-	pegaNome(id: number): string | boolean{
+	public pegaNome(id: number): string | boolean{
 		return this.pegaPessoa(id)?.name || false;
 	}
 
-	pegaBio(id: number): string | boolean{
+	public pegaBio(id: number): string | boolean{
 		return this.pegaPessoa(id)?.bio || false;
 	}
 
-	deletaPessoa(id: number){
+	public deletaPessoa(id: number){
 		return this.lista.filter( pessoa => pessoa.id != id);
 	}
 
-	mudarCampo(id: number, campo: 'name'| 'bio', mudanca: string): Array<Person> | boolean{
+	public mudarCampo(id: number, campo: 'name'| 'bio', mudanca: string): Array<Person> | boolean{
 		let novaLista:  Array<Person> = this.lista.map((pessoa: Person) => ({...pessoa}))
 		let index = this.lista.indexOf(this.pegaPessoa(id));
 		if (novaLista[index]){
@@ -46,8 +46,3 @@ class Informacao{
 		return false;
 	}
 }
-
-let test = new Informacao(lista);
-
-console.log(test.mudarCampo(1, 'name', "NOME"));
-console.log(lista);
