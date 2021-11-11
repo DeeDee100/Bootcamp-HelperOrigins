@@ -1,5 +1,4 @@
-import { lista } from "./aditionals.js";
-class Informacao {
+export class Informacao {
     constructor(lista) {
         this.lista = lista;
     }
@@ -27,6 +26,4 @@ class Informacao {
         return false;
     }
 }
-let lul = new Informacao(lista);
-console.log(lul.pegaNome(1));
 //# sourceMappingURL=ex6%20Funcional.js.map

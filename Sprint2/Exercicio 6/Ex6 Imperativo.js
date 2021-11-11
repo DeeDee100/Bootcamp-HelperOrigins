@@ -1,11 +1,4 @@
-// Xa) Crie uma classe que retorne a bio do id passado
-// Xb) Crie uma classe que retorne o name do id passado
-// Xc) Crie uma classe que apague um item da lista a partir de um id passado
-// Xd) Crie uma classe que altere a bio ou o name a partir de um id passado
-// e) Demonstre todos os métodos com o paradigma funcional e com o imperativo
-// Atenção: A escolha de fazer 1 classe ou N classes é de cada pessoa
-import { lista } from "./aditionals.js";
-class Informations {
+export class Informations {
     constructor(lista) {
         this.lista = lista;
     }
@@ -43,6 +36,4 @@ class Informations {
         return false;
     }
 }
-let lul = new Informations(lista);
-console.log(lul.getBio(1));
 //# sourceMappingURL=Ex6%20Imperativo.js.map
