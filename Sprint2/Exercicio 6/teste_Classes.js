@@ -1,5 +1,5 @@
-import { Informations } from "./Ex6 Imperativo.js";
-import { Informacao } from "./ex6 Funcional.js";
+import { PersonsInformation } from "./Ex6 Imperativo.js";
+import { PessoasInformacao } from "./ex6 Funcional.js";
 let lista = [
     { "id": 1, "name": "Ada Lovelace", "bio": "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina" },
     { "id": 2, "name": "Alan Turing", "bio": "Alan Turing foi um matemático, cientista da computação, lógico, criptoanalista, filósofo e biólogo teórico britânico, ele é amplamente considerado o pai da ciência da computação teórica e da inteligência artificia" },
@@ -7,8 +7,8 @@ let lista = [
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." },
     { "id": 7, "name": "Dee Dee", "bio": "Bio aqui luls" }
 ];
-let teste1 = new Informations(lista);
-let teste2 = new Informacao(lista);
+let teste1 = new PersonsInformation(lista);
+let teste2 = new PessoasInformacao(lista);
 console.log(teste1.getName(1));
 console.log(teste2.pegaNome(1));
 //# sourceMappingURL=teste_Classes.js.map

@@ -1,5 +1,5 @@
-import { Informations } from "./Ex6 Imperativo.js";
-import { Informacao } from "./ex6 Funcional.js";
+import { PersonsInformation } from "./Ex6 Imperativo.js";
+import { PessoasInformacao } from "./ex6 Funcional.js";
 
 let lista: Array<Person> = [
 	{"id" : 1, "name": "Ada Lovelace", "bio" : "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina"},
@@ -9,8 +9,8 @@ let lista: Array<Person> = [
 	{"id" : 7, "name": "Dee Dee", "bio": "Bio aqui luls"}
 ];
 
-let teste1 = new Informations(lista)
-let teste2 = new Informacao(lista)
+let teste1 = new PersonsInformation(lista)
+let teste2 = new PessoasInformacao(lista)
 
 console.log(teste1.getName(1))
 console.log(teste2.pegaNome(1))

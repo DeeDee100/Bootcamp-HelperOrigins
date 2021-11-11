@@ -1,4 +1,4 @@
-export class Informacao {
+export class PessoasInformacao {
     constructor(lista) {
         this.lista = lista;
     }

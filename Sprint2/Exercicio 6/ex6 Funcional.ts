@@ -1,6 +1,6 @@
 import {Person} from "./interface.js"
 
-export class Informacao{
+export class PessoasInformacao{
 	public lista: Array<Person>;
 
 	public constructor(lista: Array<Person>){
