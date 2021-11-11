@@ -1,7 +1,5 @@
-const numberList = [1,2,6,9,4];
-const MixedList = [1,2,6,"lul", 9];
 
-class Values{
+class ArrayValues{
 	public list: Array<any>;
 
 	constructor(list: Array<any>){
@@ -21,10 +19,10 @@ class Values{
 	}
 
 	public average(){
-	let newList: Array<number> = [...this.list];
-	let sum: number = newList.reduce((numero1, numero2) => numero1 + numero2, 0);
-	const result: number = sum / (newList.length || 1);
-	return result;
+		let newList: Array<number> = [...this.list];
+		let sum: number = newList.reduce((numero1, numero2) => numero1 + numero2, 0);
+		const result: number = sum / (newList.length || 1);
+		return result;
 	}
 
 	public maxMinAverage(){

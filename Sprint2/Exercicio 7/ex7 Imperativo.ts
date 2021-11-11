@@ -1,13 +1,5 @@
-// Crie uma classe que receba uma lista (númerica ou não) e retorne outra contendo:
-//  a) O maior valor;
-//  b) O menor valor;
-//  c) O valor médio.
-// Demonstre essa classe com o paradigma funcional e imperativo
 
-const lista_Numeros = [1,2,6,9,4];
-const listaNumero_Misto = [1,2,6,"lul", 9];
-
-class Valores{
+class ValoresArray{
 	public lista: Array<any>;
 
 	constructor(lista: Array<any>){
