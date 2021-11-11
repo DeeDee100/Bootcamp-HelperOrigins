@@ -1,4 +1,4 @@
-import { getIndex } from "../Exercicio2/ex2 imperativo.js"
+//import { getIndex } from "../Exercicio2/ex2 imperativo.js"
 
 interface Person{
 	id: number;

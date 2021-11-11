@@ -16,6 +16,6 @@ export class Vogals {
         return count;
     }
 }
-let vogal = new Vogals("Dee DEEe");
+const vogal = new Vogals("Dee DEEe");
 vogal.getVogals();
 //# sourceMappingURL=ex5_Funcao.js.map
