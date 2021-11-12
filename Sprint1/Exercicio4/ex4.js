@@ -1,4 +1,4 @@
-import { getIndex } from "../Exercicio2/ex2 imperativo.js";
+//import { getIndex } from "../Exercicio2/ex2 imperativo.js"
 let listaPessoas = [
     { "id": 1, "name": "Ada Lovelace", "bio": "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por uma máquina" },
     { "id": 2, "name": "Alan Turing", "bio": "Alan Turing foi um matemático, cientista da computação, lógico, criptoanalista, filósofo e biólogo teórico britânico, ele é amplamente considerado o pai da ciência da computação teórica e da inteligência artificia" },
