@@ -5,7 +5,7 @@ let list = [
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." },
     { "id": 7, "name": "Dee Dee", "bio": "Bio aqui luls" }
 ];
-export function getIndex(id, list) {
+function getIndex(id, list) {
     for (let index = 0; index < list.length; index++) {
         if (list[index].id == id) {
             return index;
@@ -36,7 +36,7 @@ function getName(id) {
  * @param id Id a ser deletado
  * @returns "item deletado" em caso de id válido | "Id não encontrado" caso id inválido
  */
-export function deleteElement(id, list) {
+function deleteElement(id, list) {
     let index = getIndex(id, list);
     if (index) {
         list.splice(index, 1);
