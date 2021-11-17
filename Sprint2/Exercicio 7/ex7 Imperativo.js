@@ -1,4 +1,4 @@
-let lista = [1, 2, 3, 4, 5,"LULS"];
+let lista = [1, 2, 3, 4, 5];
 class ValoresArray {
     constructor(lista) {
         this.lista = lista;
