@@ -12,7 +12,7 @@ let list: Array<Person> = [
 	{"id" : 7, "name": "Dee Dee", "bio": "Bio aqui luls"}
 ];
 
-function getIndex(id:number, list: Array<Person>): number | undefined{
+export function getIndex(id:number, list: Array<Person>): number | undefined{
 	for (let index:number = 0; index < list.length;index++){
 		if (list[index].id == id){
 			return index;
